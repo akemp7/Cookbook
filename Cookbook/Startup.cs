@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Cookbook.Models;
 
+
+
 namespace Cookbook
 {
   public class Startup
@@ -28,7 +30,10 @@ namespace Cookbook
       services.AddEntityFrameworkMySql()
         .AddDbContext<CookbookContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
-
+    
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<CookbookContext>()
+        .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
       {
