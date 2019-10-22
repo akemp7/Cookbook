@@ -1,0 +1,21 @@
+@using Cookbook.Models
+@using System.Security.Claims
+@model IEnumerable<Cookbook.Models.Recipe>
+
+<h1>Recipes for @User.Identity.Name</h1>
+<hr>
+@if (Model.Any())
+{
+    <ul>
+        @foreach (Recipe recipe in Model)
+        {
+            <li>@Html.ActionLink($"{recipe.Name}", "Details", new {id = recipe.RecipeId})</li>
+        }
+    </ul>
+}
+
+<button class="btn btn-default">@Html.ActionLink("Add a new recipe", "Create")</button>
+
+<button class="btn btn-default">@Html.ActionLink("Back to home", "Home", "Account")</button>
+
+

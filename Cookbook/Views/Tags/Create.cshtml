@@ -1,0 +1,12 @@
+@model Cookbook.Models.Tag
+
+<h4>Add a new tag</h4>
+<hr>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description, new { @class="form-control", required="required" })
+    <br>
+    <input type="submit" value="Add new recipe" class="btn btn-default" />
+}
+<button class="btn btn-default">@Html.ActionLink("Show all tags", "Index")</button> 

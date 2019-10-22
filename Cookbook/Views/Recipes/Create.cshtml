@@ -1,0 +1,15 @@
+@model Cookbook.Models.Recipe
+
+<h4>Add a new recipe</h4>
+<hr>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { @class="form-control", required="required"})
+    <br>
+    @Html.Label("Select tag")
+    @Html.DropDownList("TagId")
+    <br>
+    <input type="submit" value="Add new recipe" class="btn btn-default" />
+}
+<button class="btn btn-default">@Html.ActionLink("Show all items", "Index")</button>

@@ -1,1 +1,10 @@
+@using Cookbook.Models
+@using System.Security.Claims
+
+
+<h2>Welcome to your cookbook @User.Identity.Name!</h2>
+<hr>
+<button class="btn btn-default">@Html.ActionLink("See my recipes", "Index", "Recipes")</button>
+<br>
+<button class="btn btn-default">@Html.ActionLink("See my tags", "Index", "Tags")</button>
 

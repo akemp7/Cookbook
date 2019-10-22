@@ -1,0 +1,14 @@
+a {
+    color: black;
+  }
+
+.form-control {
+    width: 400px;
+}
+
+.btn {
+    display: block;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}

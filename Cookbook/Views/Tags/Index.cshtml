@@ -1,0 +1,19 @@
+@using Cookbook.Models
+@using System.Security.Claims
+@model IEnumerable<Cookbook.Models.Tag>
+
+<h1>Recipes for @User.Identity.Name</h1>
+<hr>
+@if (Model.Any())
+{
+    <ul>
+        @foreach (Tag tag in Model)
+        {
+            <li>@Html.ActionLink($"{tag.Description}", "Details", new {id = tag.TagId})</li>
+        }
+    </ul>
+}
+
+<button class="btn btn-default">@Html.ActionLink("Add a new tag", "Create")</button>
+
+<button class="btn btn-default">@Html.ActionLink("Back to home", "Home", "Account")</button>
